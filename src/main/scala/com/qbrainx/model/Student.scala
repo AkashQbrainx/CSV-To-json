@@ -11,11 +11,9 @@ case class Student(id:Int,fName:String,lName:String,Mobile:Option[String]){
 
 }
 object Student{
-
-  def convertToJson(students: util.List[Student]): String = {
-    students
-      .stream()
-      .map(student => jsonString(student))
+  def convertToJson(input: util.List[Student]): String = {
+    input.stream().map( jsonString(_))
       .collect(Collectors.joining(",", "[", "]"))
   }
+
 }
