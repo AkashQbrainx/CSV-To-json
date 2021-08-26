@@ -7,6 +7,12 @@ import java.util.stream.Collectors
 import scala.util.{Success, Try}
 
 object StudentMapper {
+  def datafromCsv(input:util.LinkedList[String]): util.List[(String, String, String, String)] ={
+    input.stream().
+      map(_.split(",")).
+      map(list=>(list.apply(0),list.apply(1),list.apply(1),list.apply(2)))
+      .collect(Collectors.toList[(String, String, String, String)])
+  }
   def convertToStudent(input:util.List[(String, String, String, String)])=
     input.stream().map{f=>Some(f._1.toInt,f._2,f._3,f._4)}
       .map { f =>

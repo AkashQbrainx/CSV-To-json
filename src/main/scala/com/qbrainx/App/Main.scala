@@ -21,7 +21,7 @@ object Main extends App {
   {
     ErrorFileWritter.errorFile(AppConfig.config.getString("errorpath"))
   }else {
-    val dataFromCsv: util.List[(String, String, String, String)] = CsvFileReader.datafromCsv(fileStatus.get)
+    val dataFromCsv: util.List[(String, String, String, String)] = StudentMapper.datafromCsv(fileStatus.get)
 
     val formatToStudent: util.List[Student] = StudentMapper.convertToStudent(dataFromCsv)
     val jsonString: String =Student.convertToJson(formatToStudent)
